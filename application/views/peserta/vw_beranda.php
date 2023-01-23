@@ -25,7 +25,7 @@
                         </div>     
                         <!-- end page title --> 
             <div class="row h-100">
-                <div class="col-6">
+                <div class="col-md-12 col-lg-6">
                     <div class="card card-light">
                         <div class="card-body p-0">
                             <div class="row align-items-end">
@@ -33,12 +33,12 @@
                                     <div class="p-3">
                                         <p class="card-text fs-2 lh-base">Hi <span class="fw-semibold"><?= $peserta['nama'];?></span>,</p>
                                         <div class="mt-3">
-                                            <p class="card-text fs-4 lh-base">Selamat datang di beranda IHSAO</p>
+                                            <p class="card-text fs-5 lh-base">Selamat datang di beranda peserta IHSAO</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
-                                    <div class="px-3">
+                                    <div class="px-0">
                                         <img src="<?= base_url();?>assets/admin/images/user-illustarator-2.png" class="img-fluid" alt="">
                                     </div>
                                 </div>
@@ -46,45 +46,54 @@
                         </div> <!-- end card-body-->
                     </div>
                 </div> <!-- end col-->
+                <div class="col-md-12 col-lg-6">
+                <div class="card">
+                            <div class="card-body" style="margin-bottom:10px;">
+                                <h4 class="header-title" style="margin-bottom:20px;">Token Quiz</h4>
+                                <form>
+                                    <div class="row align-items-    center">
+                                        <div class="col-9">
+                                            <input type="text" name="token" class="form-control mb-2" id="inlineFormInput"
+                                                placeholder="Masukkan token quiz disini">
+                                        </div>
+                                        <div class="col-auto">
+                                            <button type="submit"
+                                                class="btn btn-primary waves-effect waves-light mb-2">Proses</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div> <!-- end card-body -->
+                        </div> <!-- end card -->
+                </div> <!-- end col-->
             </div> <!-- end row-->
+            
 
             <div class="row">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Table head options</h4>
-                                        <p class="sub-header">
-                                            Use one of two modifier classes to make <code>&lt;thead&gt;</code>s appear light or dark gray.
-                                        </p>
-
+                                        <h4 class="header-title">Quiz Saya</h4>
                                         <div class="table-responsive">
                                             <table class="table mb-0">
                                                 <thead class="table-light">
                                                     <tr>
                                                         <th>#</th>
-                                                        <th>Q</th>
-                                                        <th>Last Name</th>
-                                                        <th>Username</th>
+                                                        <th>Quiz</th>
+                                                        <th>Jumlah</th>
+                                                        <th>Waktu</th>
+                                                        <th>Status</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
                                                         <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
+                                                        <td>Quiz Objektif SMK</td>
+                                                        <td>10 Soal</td>
+                                                        <td>90m</td>
+                                                        <td><span class="badge bg-primary">Selesai</span></td>
+                                                        <td><button class="btn btn-primary btn-sm">Mulai</button></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

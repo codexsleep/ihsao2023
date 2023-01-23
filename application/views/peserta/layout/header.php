@@ -11,7 +11,7 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= base_url();?>assets/admin/images/favicon.ico">
+        <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.png">
 
         <!-- Plugins css -->
         <link href="<?= base_url();?>assets/admin/libs/flatpickr/flatpickr.min.css" rel="stylesheet" type="text/css" />
@@ -150,7 +150,7 @@
                             <li>
                                 <a href="apps-chat.html">
                                 <i class="fe-clipboard"></i>
-                                    <span> Quiz Saya </span>
+                                    <span> Riwayat Quiz </span>
                                 </a>
                             </li>
 
