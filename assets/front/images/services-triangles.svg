@@ -1,0 +1,22 @@
+<svg
+    width="221"
+    height="182"
+    viewBox="0 0 221 182"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M1.13452 146.146L68.6874 0.978516L219.384 55.0889L1.13452 146.146Z"
+        fill="#F86627"
+        stroke="#1D1E1B"
+        stroke-width="0.472167"
+        stroke-miterlimit="10">
+    </path>
+    <path
+        d="M55.2733 123.637L150.972 88.7207L194.426 180.86L55.2733 123.637Z"
+        fill="white"
+        stroke="#1D1E1B"
+        stroke-width="0.472167"
+        stroke-miterlimit="10">
+    </path>
+</svg>

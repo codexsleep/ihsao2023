@@ -1,0 +1,13 @@
+#beranda canvas {
+    background-color: #252730;
+    display: block;
+    height: 100vh !important;
+    vertical-align: bottom;
+}
+
+#beranda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
