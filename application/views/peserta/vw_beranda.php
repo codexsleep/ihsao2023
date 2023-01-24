@@ -50,8 +50,8 @@
                 <div class="card">
                             <div class="card-body" style="margin-bottom:10px;">
                                 <h4 class="header-title" style="margin-bottom:20px;">Token Quiz</h4>
-                                <form>
-                                    <div class="row align-items-    center">
+                                <form action="" method="POST">
+                                    <div class="row align-items-center">
                                         <div class="col-9">
                                             <input type="text" name="token" class="form-control mb-2" id="inlineFormInput"
                                                 placeholder="Masukkan token quiz disini">
@@ -67,9 +67,9 @@
                         </div> <!-- end card -->
                 </div> <!-- end col-->
             </div> <!-- end row-->
-            
+            <?=$this->session->flashdata('message')?>
 
-            <div class="row">
+            <div class="row" style="margin-bottom:20%">
                             <div class="col-lg-12">
                                 <div class="card">
                                     <div class="card-body">
@@ -81,20 +81,60 @@
                                                         <th>#</th>
                                                         <th>Quiz</th>
                                                         <th>Jumlah</th>
+                                                        <th>Jenis</th>
                                                         <th>Waktu</th>
                                                         <th>Status</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                <?php
+                                                    $no = 1;
+                                                    foreach($QuizLog as $value){
+                                                       // tanggal berakhir ke timestamp
+                                                        $target_time = strtotime($value['end_time']);
+                                                        // mengambil timestamp saat ini
+                                                        $current_time = time();
+                                                        // menghitung selisih antara waktu yang ditentukan dengan waktu saat ini dalam detik
+                                                        $seconds_left = $target_time - $current_time;
+                                                        if($seconds_left>0){
+                                                            if($value['status']==0){
+                                                                $badge = "info";
+                                                                $badgetext = "Tersedia";
+                                                            }elseif($value['status']==1){
+                                                                $badge = "warning";
+                                                                $badgetext = "Berlangsung";
+                                                            }else{
+                                                                $badge = "success";
+                                                                $badgetext = "Selesai";
+                                                            }
+                                                            $btnclr = "primary";
+                                                        }else{
+                                                            $badge = "secondary";
+                                                            $badgetext = "Ditutup";  
+                                                            $btnclr = "light";
+                                                        }
+                                                        $soalData = $this->beranda_model->getQuiz_Soal($value['id']); //get unansware quizid
+                                                        if($soalData['id']==null){ 
+                                                            $btnUrl = base_url('peserta/quiz/generate_soal/').$value['quiz_id'].'/'.$value['id'];
+                                                        }else{
+                                                            $btnUrl = base_url('peserta/quiz/objektif/').$value['quiz_id'].'/'.$value['id'].'/'.$soalData['id'];
+                                                        } 
+                                                ?>
                                                     <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Quiz Objektif SMK</td>
-                                                        <td>10 Soal</td>
-                                                        <td>90m</td>
-                                                        <td><span class="badge bg-primary">Selesai</span></td>
-                                                        <td><button class="btn btn-primary btn-sm">Mulai</button></td>
+                                                        <th scope="row"><?= $no++;?></th>
+                                                        <td><?= $value['name'];?></td>
+                                                        <td><?php if($value['jumsoal']=='-'){ echo "-";}else{ echo $value['jumsoal']." Soal";}?></td>
+                                                        <td><?php if($value['type']==1){ echo "Objektif";}else{ echo "Esay";}?></td>
+                                                        <td><?= $value['duration'];?>m</td>
+                                                        <td>
+                                                            <span class="badge bg-<?= $badge;?>"><?= $badgetext;?></span>
+                                                        </td>
+                                                        <td><button class="btn btn-<?= $btnclr;?> btn-sm" onclick="window.location.href = '<?= $btnUrl;?>'" <?php if($badgetext=="Ditutup" or $badgetext=="Selesai"){ echo "disabled";}?>>Mulai</button></td>
                                                     </tr>
+                                                <?php
+                                                    }
+                                                ?>
                                                 </tbody>
                                             </table>
                                         </div> <!-- end table-responsive-->

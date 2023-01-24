@@ -141,19 +141,11 @@
 
                         <ul id="side-menu">
                             <li>
-                                <a href="apps-calendar.html">
+                                <a href="<?= base_url();?>peserta/beranda">
                                 <i class="fe-home"></i>
                                     <span> Beranda </span>
                                 </a>
                             </li>
-
-                            <li>
-                                <a href="apps-chat.html">
-                                <i class="fe-clipboard"></i>
-                                    <span> Riwayat Quiz </span>
-                                </a>
-                            </li>
-
                             <li>
                                 <a href="apps-chat.html">
                                 <i class="fe-book-open"></i>
