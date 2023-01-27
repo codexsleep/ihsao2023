@@ -117,9 +117,12 @@
                 }
             });
         }
-    });
-
-var akhir = new Date("2023-01-24 24:00:00").getTime();
+    }); 
+<?php
+    $baseTime = strtotime($logData['started']);
+    $leftime = $logData['duration']*60;
+?>
+var akhir = new Date("<?= date('Y-m-d H:i:s', $leftime+$baseTime);?>").getTime();
 
 var x = setInterval(function() {
   var awal = new Date().getTime();
@@ -153,6 +156,7 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("msg").innerHTML = "00:00:00";
+    alert("Waktu pengerjaan quiz telah habis!");
     var url = "<?= base_url();?>peserta/beranda";
     window.location.href = url;
   }

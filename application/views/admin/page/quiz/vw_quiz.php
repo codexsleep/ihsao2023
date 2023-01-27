@@ -22,7 +22,7 @@
                         </div>
                     </div>
                     <!-- end page title -->
-                    <?=$this->session->flashdata('message')?>
+                    <?= $this->session->flashdata('message')?>
                     <div class="row">
                             <div class="col-12">
                                 <div class="card">
@@ -73,4 +73,3 @@
                     <!-- end row-->
                 </div> <!-- container -->
 
-            </div> <!-- content -->

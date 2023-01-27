@@ -65,4 +65,11 @@ class Beranda extends CI_Controller {
         }
 	}
 
+	public function tester(){
+		$target_time = strtotime('2023-01-24 19:00:00');
+		$waktu = 2*60;
+		$result =  date('Y-m-d H:i:s', $waktu+$target_time);
+		echo $result;
+	}
+
 }

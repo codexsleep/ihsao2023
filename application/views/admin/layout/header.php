@@ -74,14 +74,8 @@
                             <div class="dropdown-header noti-title">
                                 <h6 class="text-overflow m-0">Selamat Datang !</h6>
                             </div>
-
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-user"></i>
-                                <span>Profile</span>
-                            </a>
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="<?= base_url()?>admin/profile/gantipassword" class="dropdown-item notify-item">
                                 <i class="fe-lock"></i>
                                 <span>Ganti Password</span>
                             </a>
@@ -214,6 +208,7 @@
                                 </ul>
                             </div>
                         </li>
+                        <?php if($admin['role']==1){?>
                         <li>
                             <a href="#<?= base_url();?>admin/dashboard">
                             <i class="dripicons-trophy"></i>
@@ -238,10 +233,9 @@
                                 </ul>
                             </div>
                         </li>
-
-
-                        
-
+                    <?php
+                        }
+                        ?>
                     </ul>
 
                 </div>

@@ -36,9 +36,10 @@ class Quiz extends CI_Controller {
 			'quiz' => $quizid,
 			'log' => $logid,
 			'soal' => $soalid,
-		];
+		]; 
 		$data['soal'] = $this->quiz_model->getSoalbyIdFromSoalLog($soalid);
 		$data['allsoal'] = $this->quiz_model->getallsoalLog($logid);
+		$data['logData'] = $this->quiz_model->getLognQuizData($logid);
 		$this->form_validation->set_rules('option', 'Option', 'required', [
             'required' => 'Option Wajib diisi'
         ]);

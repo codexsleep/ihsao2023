@@ -24,7 +24,7 @@ class Quiz_model extends CI_Model
         return $this->db->insert_id();
     }
 
-    public function updatelog($where, $data)
+    public function updatelog($where, $data) 
     {
         $this->db->update('tbl_quiz_log', $data, $where);
         return $this->db->affected_rows();
@@ -44,6 +44,11 @@ class Quiz_model extends CI_Model
 
     public function getSoalbyIdFromSoalLog($id){
         $query = $this->db->query("SELECT *, t.answare as jawab FROM tbl_question_multiplec_log t, tbl_quiz_multiple_choice s  WHERE t.id='$id' and s.id=t.multiple_choice_id");
+        return $query->row_array();  
+    }
+
+    public function getLognQuizData($id){
+        $query = $this->db->query("SELECT * FROM tbl_quiz_log log, tbl_quiz quiz where log.id='$id' and quiz.id=log.quiz_id");
         return $query->row_array();  
     }
 
