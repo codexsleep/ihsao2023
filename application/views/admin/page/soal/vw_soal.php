@@ -10,9 +10,9 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="<?= base_url();?>">Ihsao</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url();?>admin">Admin</a></li>
-                                <li class="breadcrumb-item"><a href="<?= base_url();?>admin/quiz">Quiz</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Ihsao</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url(); ?>admin">Admin</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url(); ?>admin/quiz">Quiz</a></li>
                                 <li class="breadcrumb-item active">Bank Soal</li>
                             </ol>
                         </div>
@@ -30,6 +30,7 @@
                             <table id="basic-datatable" class="table dt-responsive nowrap w-100">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>NO</th>
                                         <th>Action</th>
                                     </tr>
@@ -41,6 +42,10 @@
                                     foreach ($soal as $value) {
                                         ?>
                                         <tr>
+
+                                            <td>
+                                                <?= $value['id']; ?>
+                                            </td>
                                             <td>Soal
                                                 <?= $no++; ?>
                                             </td>
@@ -70,4 +75,3 @@
         </div>
         <!-- end row-->
     </div> <!-- container -->
-
