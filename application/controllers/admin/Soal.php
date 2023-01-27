@@ -34,7 +34,7 @@ class Soal extends CI_Controller {
 	{
 		$data['title'] = "Tambah Soal - Admin IHSAO";
 		$data['admin'] = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
-
+		$data['ide'] =  $id;
         $this->form_validation->set_rules('pertanyaan', 'Pertanyaan', 'required', [
             'required' => 'Pertanyaan Soal Wajib diisi'
         ]);
@@ -47,12 +47,12 @@ class Soal extends CI_Controller {
             $data = [
                 'quiz_id' => $id,
 				'question' => $this->input->post('pertanyaan'),
-				'option_a' => str_replace("'", "", $this->input->post('opsia',)),
-				'option_b' => str_replace("'", "", $this->input->post('opsib',)),
-				'option_c' => str_replace("'", "", $this->input->post('opsic',)),
-				'option_d' => str_replace("'", "", $this->input->post('opsid',)),
-				'option_e' => str_replace("'", "", $this->input->post('opsie',)),
-				'answare' => str_replace("'", "", $this->input->post('jawaban',)),
+				'option_a' => str_replace("'", "", $this->input->post('opsia')),
+				'option_b' => str_replace("'", "", $this->input->post('opsib')),
+				'option_c' => str_replace("'", "", $this->input->post('opsic')),
+				'option_d' => str_replace("'", "", $this->input->post('opsid')),
+				'option_e' => str_replace("'", "", $this->input->post('opsie')),
+				'answare' => str_replace("'", "", $this->input->post('jawaban')),
                 'created' => date('Y-m-d H:i:s'),
             ];
             $this->soal_model->insert($data);
@@ -67,6 +67,7 @@ class Soal extends CI_Controller {
 		$data['title'] = "Edit Soal - Admin IHSAO";
 		$data['admin'] = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
 		$data['soal'] = $this->soal_model->getById($id);
+		$data['ide'] =  $data['soal']['quiz_id'];
         $this->form_validation->set_rules('pertanyaan', 'Pertanyaan', 'required', [
             'required' => 'Pertanyaan Soal Wajib diisi'
         ]);
@@ -78,12 +79,12 @@ class Soal extends CI_Controller {
         } else {
             $data = [
 				'question' => $this->input->post('pertanyaan'),
-				'option_a' => str_replace("'", "", $this->input->post('opsia',)),
-				'option_b' => str_replace("'", "", $this->input->post('opsib',)),
-				'option_c' => str_replace("'", "", $this->input->post('opsic',)),
-				'option_d' => str_replace("'", "", $this->input->post('opsid',)),
-				'option_e' => str_replace("'", "", $this->input->post('opsie',)),
-				'answare' => str_replace("'", "", $this->input->post('jawaban',)),
+				'option_a' => str_replace("'", "", $this->input->post('opsia')),
+				'option_b' => str_replace("'", "", $this->input->post('opsib')),
+				'option_c' => str_replace("'", "", $this->input->post('opsic')),
+				'option_d' => str_replace("'", "", $this->input->post('opsid')),
+				'option_e' => str_replace("'", "", $this->input->post('opsie')),
+				'answare' => str_replace("'", "", $this->input->post('jawaban')),
 				'updated' => date('Y-m-d H:i:s'),
             ];
             $this->soal_model->update(['id' => $id], $data);
@@ -106,7 +107,7 @@ class Soal extends CI_Controller {
 		$data['title'] = "Detail Soal - Admin IHSAO";
 		$data['admin'] = $this->db->get_where('tbl_admin', ['email' => $this->session->userdata('email')])->row_array();
 		$data['soal'] = $this->soal_model->getById($id);
-		$data['ide'] =  $id;
+		$data['ide'] =  $data['soal']['quiz_id'];
 		$this->load->view("admin/layout/header", $data);
 		$this->load->view("admin/page/soal/vw_detail", $data);
 		$this->load->view("admin/layout/footer", $data);

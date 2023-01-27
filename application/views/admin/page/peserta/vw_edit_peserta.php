@@ -10,13 +10,13 @@
                     <div class="page-title-box">
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Ihsao</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Peserta</a></li>
-                                <li class="breadcrumb-item active">Tambah</li>
+                                <li class="breadcrumb-item"><a href="<?= base_url();?>">Ihsao</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url();?>admin">Admin</a></li>
+                                <li class="breadcrumb-item"><a href="<?= base_url();?>admin/peserta">Peserta</a></li>
+                                <li class="breadcrumb-item active">Edit</li>
                             </ol>
                         </div>
-                        <h4 class="page-title">Tambah Peserta </h4>
+                        <h4 class="page-title">Edit Peserta </h4>
                     </div>
                 </div>
             </div>
